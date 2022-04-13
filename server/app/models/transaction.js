@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const templateSchema = new mongoose.Schema({
+const transactionSchema = new mongoose.Schema({
   locationId: { type: String, default: '' },
   meterNumber: { type: String, default: '' },
   readings: { type: Array, default: [] },
@@ -10,12 +10,12 @@ const templateSchema = new mongoose.Schema({
   modifiedOn: { type: Number, default: Date.now() }
 })
 
-templateSchema.method({
+transactionSchema.method({
   saveData: async function () {
     return this.save()
   }
 })
-templateSchema.static({
+transactionSchema.static({
   findData: function (findObj) {
     return this.find(findObj)
   },
@@ -33,4 +33,4 @@ templateSchema.static({
     return this.aggregate(findObj)
   }
 })
-export default mongoose.model('nq-template', templateSchema)
+export default mongoose.model('fet-transaction', transactionSchema)

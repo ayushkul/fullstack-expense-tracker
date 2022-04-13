@@ -66,6 +66,8 @@ export const genericConstants = {
 }
 
 export const apiSuccessMessage = {
+  LOGIN: 'User logged in successfully',
+  LOGOUT: 'User logged out successfully',
   FETCH_SUCCESS: 'Information fetched successfully'
 }
 

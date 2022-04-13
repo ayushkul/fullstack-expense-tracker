@@ -23,7 +23,7 @@ export default class Logger {
      * @param logType ["INFO", "WARNING", "ERROR"]
      * @constructor
      */
-    static log(functionName, message, payload, developerAlias, logType = 'INFO') {
+    static log(functionName, message, payload, developerAlias = "AyushK", logType = 'INFO') {
         console.log(`[ ${Utils.getFormattedDate()} ] ${logType}: ${functionName}: ${message}: ${JSON.stringify(payload)}: Developer : ${developerAlias}`)
     }
 }

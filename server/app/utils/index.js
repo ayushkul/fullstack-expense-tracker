@@ -42,6 +42,11 @@ export default class Utils {
     this.response(res, {}, msg, httpConstants.RESPONSE_STATUS.FAILURE, code)
   }
 
+  static returnRejection(message, responseCode) {
+    const msg = message ? message : apiFailureMessage.INTERNAL_SERVER_ERROR;
+    const code = responseCode ? responseCode : httpConstants.RESPONSE_CODES.INTERNAL_SERVER_ERROR;
+    return Promise.reject({message: msg, code: code});
+  }
   /**
    * This function is made to handle success and error callback!
    * @param promise
