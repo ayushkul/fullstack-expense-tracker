@@ -9,8 +9,7 @@ import {
 } from "./modules";
 import {history} from "./managers/history";
 import LoaderComponent from "./common/components/loader";
-import Utility, {dispatchAction} from "./utility";
-import {eventConstants} from "./constants";
+import {dispatchAction} from "./utility";
 import {ToastContainer} from "react-toastify";
 import sessionManager from "./managers/sessionManager";
 
@@ -21,7 +20,7 @@ const Routes = (props) => {
 
     useEffect(async () => {
         const data = await sessionManager.getDataFromLocalStorage("userInfo")
-        console.log('Class: , Function:  === ', data);
+        console.log('Class: , Function:  === ', window.location);
         if (data)
             setUserInfo(data)
     }, [])
@@ -49,6 +48,7 @@ const Routes = (props) => {
             <Switch>
                 <Route exact path={'/dashboard'} component={dashboardComponent}/>
                 <Route exact path={'/transactions'} component={dashboardComponent}/>
+                <Route exact path={'/add-transaction'} component={dashboardComponent}/>
                 <Route exact path={'/categories'} component={dashboardComponent}/>
                 <Route exact path={'/analytics'} component={dashboardComponent}/>
                 <Route exact path={'/settings'} component={dashboardComponent}/>

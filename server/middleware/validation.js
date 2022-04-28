@@ -47,8 +47,10 @@ module.exports = {
     },
     validateAddTransaction: async (req, res, next) => {
         const schema = yup.object().shape({
-            name: yup.string().required(),
-            userId: yup.string().required(),
+            amount: yup.number().required(),
+            description: yup.string().required(),
+            category: yup.string().required(),
+            user: yup.string().required(),
         })
         await validate(schema, req.body, res, next)
     }

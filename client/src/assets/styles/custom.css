@@ -74,6 +74,12 @@ input:focus {
 .jc-space-between {
     justify-content: space-between;
 }
+.react-datepicker-wrapper{
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    width: auto;
+}
 
 /*Word-Break-CSS*/
 

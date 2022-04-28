@@ -20,7 +20,7 @@ module.exports = (app) => {
     app.get("/category-list", ValidationManger.validateGetCategoryList, new CategoryModule().getCategoryList);
 
     // user transactions routes
-    app.post("/transaction", ValidationManger.validateAddTransaction, new TransactionModule().loginUser);
-    app.put("/transaction", ValidationManger.validateUserLogin, new TransactionModule().loginUser);
-    app.post("/transaction-list", ValidationManger.validatePaginatedQuery, new TransactionModule().logoutUser);
+    app.post("/transaction", ValidationManger.validateAddTransaction, new TransactionModule().addTransaction);
+    app.put("/transaction", ValidationManger.validateUserLogin, new TransactionModule().updateTransaction);
+    app.get("/transaction-list", ValidationManger.validatePaginatedQuery, new TransactionModule().getTxnList);
 };

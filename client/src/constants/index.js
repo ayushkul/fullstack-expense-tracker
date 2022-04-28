@@ -32,6 +32,9 @@ export const httpConstants = {
         UPDATE_CATEGORY: '/category',
         CATEGORY_LIST: '/category-list',
 
+        //TRANSACTION_END_POINTS
+        ADD_TRANSACTION: '/transaction',
+
     }
 };
 

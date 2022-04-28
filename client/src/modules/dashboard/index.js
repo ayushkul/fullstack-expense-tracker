@@ -7,6 +7,7 @@ import Transactions from "../transactions";
 import Categories from "../categories";
 import Analytics from "../analytics";
 import Settings from "../settings";
+import AddTransaction from "../transactions/addTransaction";
 
 const MenuImage = styled.img`
   width: 24px;
@@ -23,7 +24,7 @@ const DashboardComponent = (props) => {
         <div className="display-flex w-100 flex-column overflow-hidden">
             <div className="w-100 p-4 fs-24 fc-azure fw-700 bg-white card-shadow">
                 {genericConstants.APP_NAME}
-er            </div>
+            </div>
             <div className="display-flex-row">
                 <div className="w-250 card-shadow h-82vh pt-5 display-flex-column">
                     <div id="dashboard" onClick={onMenuClick}
@@ -35,10 +36,10 @@ er            </div>
                         Dashboard
                     </div>
                     <div id="transactions" onClick={onMenuClick}
-                         className={Utility.isMenuActive("transactions") ? "p-2 fs-20 cursor-pointer bg-azure br-menu fc-white" : "p-2 fs-20 cursor-pointer fc-brownish-grey"}>
+                         className={Utility.isMenuActive("transactions") || Utility.isMenuActive("add-transaction") ? "p-2 fs-20 cursor-pointer bg-azure br-menu fc-white" : "p-2 fs-20 cursor-pointer fc-brownish-grey"}>
                         <MenuImage
                             alt="transactions"
-                            src={dashboardMenuImages.ADVERTISERS[Utility.isMenuActive("/transactions")]}
+                            src={dashboardMenuImages.ADVERTISERS[Utility.isMenuActive("/transactions")||Utility.isMenuActive("/add-transaction")]}
                         />
                         Transactions
                     </div>
@@ -67,9 +68,10 @@ er            </div>
                         Settings
                     </div>
                 </div>
-                <div className="overflow-y-auto">
+                <div className="overflow-y-auto w-100">
                     {Utility.isMenuActive("dashboard") && <Home/>}
                     {Utility.isMenuActive("transactions") && <Transactions/>}
+                    {Utility.isMenuActive("add-transaction") && <AddTransaction/>}
                     {Utility.isMenuActive("categories") && <Categories/>}
                     {Utility.isMenuActive("analytics") && <Analytics/>}
                     {Utility.isMenuActive("settings") && <Settings/>}

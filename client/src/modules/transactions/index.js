@@ -1,18 +1,31 @@
 import TableComponent from "../../common/components/TableComponent";
-import {DeleteIcon, SearchBox, SearchIcon, SearchInput} from "../categories";
+import {SearchBox, SearchIcon, SearchInput} from "../categories";
 import {useState} from "react";
+import AddTransaction from "./addTransaction";
+import {Dialog} from "@material-ui/core";
+import {history} from "../../managers/history"
 
 const Transactions = () => {
     const [isOpen, setOpen] = useState(false)
 
     return (
         <>
+            <Dialog
+                fullWidth={true}
+                open={isOpen}
+                onClose={() => setOpen(false)}>
+                <AddTransaction toggleDialog={setOpen} selectedTransaction={null}/>
+            </Dialog>
             <div className="display-flex-column p-3 w-100">
                 <div className="display-flex-row justify-content-sm-between mt-3 ">
                     <SearchBox>
                         <SearchInput placeholder="Search"/>
                         <SearchIcon src="/images/search-icon.svg"/>
                     </SearchBox>
+                    <span onClick={() => history.push("add-transaction")}
+                          className="bg-azure fc-white br-12 px-3 py-1 text-align-center cursor-pointer card-shadow">
+                        + Add Transaction
+                    </span>
                 </div>
                 <TableComponent.Table cellpadding="0" cellspacing="0">
                     <TableComponent.TableHead>
