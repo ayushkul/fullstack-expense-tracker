@@ -34,6 +34,7 @@ export const httpConstants = {
 
         //TRANSACTION_END_POINTS
         ADD_TRANSACTION: '/transaction',
+        TRANSACTION_LIST: '/transaction-list',
 
     }
 };

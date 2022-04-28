@@ -22,5 +22,5 @@ module.exports = (app) => {
     // user transactions routes
     app.post("/transaction", ValidationManger.validateAddTransaction, new TransactionModule().addTransaction);
     app.put("/transaction", ValidationManger.validateUserLogin, new TransactionModule().updateTransaction);
-    app.get("/transaction-list", ValidationManger.validatePaginatedQuery, new TransactionModule().getTxnList);
+    app.get("/transaction-list", ValidationManger.validateGetCategoryList, new TransactionModule().getTxnList);
 };

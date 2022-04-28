@@ -29,6 +29,9 @@ const getCategoryList = (userId) => {
 const addTransaction = (requestData) => {
     return httpService(httpConstants.METHOD_TYPE.POST, "", requestData, httpConstants.API_HOST_URL + httpConstants.API_END_POINT.ADD_TRANSACTION)
 }
+const getTransactionList = (userId) => {
+    return httpService(httpConstants.METHOD_TYPE.GET, "", null, httpConstants.API_HOST_URL + httpConstants.API_END_POINT.TRANSACTION_LIST+`?userId=${userId}`)
+}
 
 const services = {
     userLogin,
@@ -37,5 +40,6 @@ const services = {
     updateCategory,
     getCategoryList,
     addTransaction,
+    getTransactionList,
 };
 export default services;
